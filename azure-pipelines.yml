@@ -1,0 +1,16 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- script: |
+    Write-Host "Network Monitoring System"
+    Write-Host "Starting network connectivity test..."
+    Test-NetConnection google.com -Port 443
+  displayName: 'Run Network Connectivity Test'
+
+- script: |
+    Write-Host "Network Monitoring Pipeline Completed"
+  displayName: 'Pipeline Completion'
